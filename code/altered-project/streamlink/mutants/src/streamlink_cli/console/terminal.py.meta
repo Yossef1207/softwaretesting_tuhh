@@ -1,0 +1,27 @@
+{
+    "exit_code_by_key": {
+        "streamlink_cli.console.terminal.x_term_width__mutmut_1": null,
+        "streamlink_cli.console.terminal.x__get_width__mutmut_1": null,
+        "streamlink_cli.console.terminal.x__get_width__mutmut_2": null,
+        "streamlink_cli.console.terminal.x__get_width__mutmut_3": null,
+        "streamlink_cli.console.terminal.x__get_width__mutmut_4": null,
+        "streamlink_cli.console.terminal.x__get_width__mutmut_5": null,
+        "streamlink_cli.console.terminal.x__get_width__mutmut_6": null,
+        "streamlink_cli.console.terminal.x_text_width__mutmut_1": null,
+        "streamlink_cli.console.terminal.x_text_width__mutmut_2": null,
+        "streamlink_cli.console.terminal.x_text_width__mutmut_3": null,
+        "streamlink_cli.console.terminal.x_text_width__mutmut_4": null,
+        "streamlink_cli.console.terminal.x_text_width__mutmut_5": null,
+        "streamlink_cli.console.terminal.x_text_width__mutmut_6": null,
+        "streamlink_cli.console.terminal.x_text_width__mutmut_7": null,
+        "streamlink_cli.console.terminal.x_text_width__mutmut_8": null,
+        "streamlink_cli.console.terminal.x_text_width__mutmut_9": null,
+        "streamlink_cli.console.terminal.x_cut_text__mutmut_1": null,
+        "streamlink_cli.console.terminal.x_cut_text__mutmut_2": null,
+        "streamlink_cli.console.terminal.x_cut_text__mutmut_3": null,
+        "streamlink_cli.console.terminal.x_cut_text__mutmut_4": null,
+        "streamlink_cli.console.terminal.x_cut_text__mutmut_5": null,
+        "streamlink_cli.console.terminal.x_cut_text__mutmut_6": null
+    },
+    "hash_by_function_name": {}
+}

@@ -1,0 +1,28 @@
+{
+    "exit_code_by_key": {
+        "streamlink.validate._schemas.x\u01c1SchemaContainer\u01c1__init____mutmut_1": null,
+        "streamlink.validate._schemas.x\u01c1_CollectionSchemaContainer\u01c1__init____mutmut_1": null,
+        "streamlink.validate._schemas.x\u01c1TransformSchema\u01c1__init____mutmut_1": null,
+        "streamlink.validate._schemas.x\u01c1TransformSchema\u01c1__init____mutmut_2": null,
+        "streamlink.validate._schemas.x\u01c1TransformSchema\u01c1__init____mutmut_3": null,
+        "streamlink.validate._schemas.x\u01c1OptionalSchema\u01c1__init____mutmut_1": null,
+        "streamlink.validate._schemas.x\u01c1GetItemSchema\u01c1__init____mutmut_1": null,
+        "streamlink.validate._schemas.x\u01c1GetItemSchema\u01c1__init____mutmut_2": null,
+        "streamlink.validate._schemas.x\u01c1GetItemSchema\u01c1__init____mutmut_3": null,
+        "streamlink.validate._schemas.x\u01c1GetItemSchema\u01c1__init____mutmut_4": null,
+        "streamlink.validate._schemas.x\u01c1UnionGetSchema\u01c1__init____mutmut_1": null,
+        "streamlink.validate._schemas.x\u01c1UnionGetSchema\u01c1__init____mutmut_2": null,
+        "streamlink.validate._schemas.x\u01c1UnionGetSchema\u01c1__init____mutmut_3": null,
+        "streamlink.validate._schemas.x\u01c1UnionGetSchema\u01c1__init____mutmut_4": null,
+        "streamlink.validate._schemas.x\u01c1RegexSchema\u01c1__init____mutmut_1": null,
+        "streamlink.validate._schemas.x\u01c1RegexSchema\u01c1__init____mutmut_2": null,
+        "streamlink.validate._schemas.x\u01c1RegexSchema\u01c1__init____mutmut_3": null,
+        "streamlink.validate._schemas.x\u01c1RegexSchema\u01c1__init____mutmut_4": null,
+        "streamlink.validate._schemas.x\u01c1RegexSchema\u01c1__init____mutmut_5": null,
+        "streamlink.validate._schemas.x\u01c1XmlElementSchema\u01c1__init____mutmut_1": null,
+        "streamlink.validate._schemas.x\u01c1XmlElementSchema\u01c1__init____mutmut_2": null,
+        "streamlink.validate._schemas.x\u01c1XmlElementSchema\u01c1__init____mutmut_3": null,
+        "streamlink.validate._schemas.x\u01c1XmlElementSchema\u01c1__init____mutmut_4": null
+    },
+    "hash_by_function_name": {}
+}

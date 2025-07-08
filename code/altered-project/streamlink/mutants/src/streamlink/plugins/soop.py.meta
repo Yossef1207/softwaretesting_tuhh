@@ -1,0 +1,11 @@
+{
+    "exit_code_by_key": {
+        "streamlink.plugins.soop.x\u01c1SoopHLSStreamWriter\u01c1should_filter_segment__mutmut_1": null,
+        "streamlink.plugins.soop.x\u01c1SoopHLSStreamWriter\u01c1should_filter_segment__mutmut_2": null,
+        "streamlink.plugins.soop.x\u01c1SoopHLSStreamWriter\u01c1should_filter_segment__mutmut_3": null,
+        "streamlink.plugins.soop.x\u01c1SoopHLSStreamWriter\u01c1should_filter_segment__mutmut_4": null,
+        "streamlink.plugins.soop.x\u01c1SoopHLSStreamWriter\u01c1should_filter_segment__mutmut_5": null,
+        "streamlink.plugins.soop.x\u01c1SoopHLSStreamWriter\u01c1should_filter_segment__mutmut_6": null
+    },
+    "hash_by_function_name": {}
+}

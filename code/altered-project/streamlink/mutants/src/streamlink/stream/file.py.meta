@@ -1,0 +1,29 @@
+{
+    "exit_code_by_key": {
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_1": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_2": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_3": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_4": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_5": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_6": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_7": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_8": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_9": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__init____mutmut_10": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__json____mutmut_1": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__json____mutmut_2": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__json____mutmut_3": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__json____mutmut_4": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1__json____mutmut_5": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1to_url__mutmut_1": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1open__mutmut_1": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1open__mutmut_2": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1open__mutmut_3": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1open__mutmut_4": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1open__mutmut_5": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1open__mutmut_6": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1open__mutmut_7": null,
+        "streamlink.stream.file.x\u01c1FileStream\u01c1open__mutmut_8": null
+    },
+    "hash_by_function_name": {}
+}

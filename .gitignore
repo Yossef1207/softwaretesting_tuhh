@@ -1,0 +1,36 @@
+# Coverage files
+.coverage*
+*.coverage
+
+# Hypothesis test database
+.hypothesis/
+htmlcov/
+# Bytecode
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache
+
+
+# IDE / Editor config files
+.vscode/
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Python virtual environments
+venv/
+.env/
+.venv/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.hypothesis/
+
+#mutants folder 
+#mutants/

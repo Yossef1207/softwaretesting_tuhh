@@ -1,0 +1,9 @@
+{
+    "exit_code_by_key": {
+        "streamlink.api.x_streams__mutmut_1": null,
+        "streamlink.api.x_streams__mutmut_2": null,
+        "streamlink.api.x_streams__mutmut_3": null,
+        "streamlink.api.x_streams__mutmut_4": null
+    },
+    "hash_by_function_name": {}
+}

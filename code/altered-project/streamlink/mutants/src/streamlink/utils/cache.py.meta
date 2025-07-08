@@ -1,0 +1,14 @@
+{
+    "exit_code_by_key": {
+        "streamlink.utils.cache.x\u01c1LRUCache\u01c1__init____mutmut_1": null,
+        "streamlink.utils.cache.x\u01c1LRUCache\u01c1__init____mutmut_2": null,
+        "streamlink.utils.cache.x\u01c1LRUCache\u01c1get__mutmut_1": null,
+        "streamlink.utils.cache.x\u01c1LRUCache\u01c1get__mutmut_2": null,
+        "streamlink.utils.cache.x\u01c1LRUCache\u01c1set__mutmut_1": null,
+        "streamlink.utils.cache.x\u01c1LRUCache\u01c1set__mutmut_2": null,
+        "streamlink.utils.cache.x\u01c1LRUCache\u01c1set__mutmut_3": null,
+        "streamlink.utils.cache.x\u01c1LRUCache\u01c1set__mutmut_4": null,
+        "streamlink.utils.cache.x\u01c1LRUCache\u01c1set__mutmut_5": null
+    },
+    "hash_by_function_name": {}
+}

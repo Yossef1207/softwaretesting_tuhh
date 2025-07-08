@@ -1,0 +1,21 @@
+{
+    "exit_code_by_key": {
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1__init____mutmut_1": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1__init____mutmut_2": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1_wrap__mutmut_1": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1_wrap__mutmut_2": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1_wrap__mutmut_3": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1_wrap__mutmut_4": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1_wrap__mutmut_5": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1_wrap__mutmut_6": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1_wrap__mutmut_7": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1restore__mutmut_1": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1restore__mutmut_2": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1restore__mutmut_3": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1__getattr____mutmut_1": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1__getattr____mutmut_2": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1__getattr____mutmut_3": null,
+        "streamlink_cli.console.stream_wrapper.x\u01c1StreamWrapper\u01c1__getattr____mutmut_4": null
+    },
+    "hash_by_function_name": {}
+}

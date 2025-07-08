@@ -1,0 +1,496 @@
+\documentclass[a4paper]{scrreprt}
+\usepackage[left=4cm,bottom=3cm,top=3cm,right=4cm,nohead,nofoot]{geometry}
+\usepackage{import,graphicx,tabularx,listings,enumitem,subcaption}
+\usepackage{xparse,multirow}
+\usepackage{xcolor}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{orange},
+    commentstyle=\color{gray},
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    tabsize=4,
+    captionpos=b
+}
+
+\usepackage{float}
+\setlength{\textfloatsep}{16pt}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand{\labelenumii}{\arabic{enumii}) }
+\usepackage{array}    % in der Präambel
+\usepackage{float}
+\usepackage{ragged2e} % für \RaggedRight
+\renewcommand{\arraystretch}{1.3}
+
+\UseRawInputEncoding
+% Base info for header
+\newcommand{\baseinfo}[5]{
+  \begin{center}
+    \begin{tabular}{p{15cm}r}
+      \vspace{-4.5pt}{ \Large \bfseries #1} & \multirow{2}{*}{} \\[0.4cm]
+      #2 & \\[0.5cm]
+    \end{tabular}
+  \end{center}
+  \vspace{-18pt}\hrule\vspace{6pt}
+  \begin{tabular}{ll}
+    \textbf{Names:} & #4\\
+    \textbf{Group:} & #5\\
+  \end{tabular}
+  \vspace{4pt}\hrule\vspace{2pt}
+  \footnotesize \textbf{Software Testing} \hfil - \hfil Summer 2024 \hfil - \hfil #3 \hfil - \hfil Sibylle Schupp / Daniel Rashedi \hfil \\
+}
+
+\lstdefinestyle{pythongrey}{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{green!50!black},
+    backgroundcolor=\color{gray!10},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    framesep=3pt,
+    tabsize=4,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    captionpos=b
+}
+
+% Question and answer environments
+\newcounter{question}
+\NewDocumentEnvironment{question}{m o}{%
+  \addtocounter{question}{1}%
+  \paragraph{\textcolor{red}{Task~\arabic{question}} - #1\hfill\IfNoValueTF{#2}{}{[#2]}}
+  \leavevmode\\%
+}{%
+  \vskip 1em%
+}
+
+\NewDocumentEnvironment{aiTask}{}{
+  \paragraph{\textcolor{red}{AI Review Task}}
+  \leavevmode\\
+}{
+  \vskip 1em
+}
+
+\NewDocumentEnvironment{answer}{}{%
+  \vspace{6pt}
+  \leavevmode\\
+  \textit{Answer:}\\[-0.25cm]
+  {\color{red}\rule{\textwidth}{0.4mm}}
+}{%
+  \leavevmode\\
+  {\color{red}\rule{\textwidth}{0.4mm}}
+}
+
+% ======= STUDENTS: START EDITING BELOW THIS LINE =======
+\newcommand{\projectinfo}[4]{\baseinfo{Project Task 03 - Submission Sheet}{#1}{#2}{#3}{#4}}
+\newcommand{\name}{Maxim Zilke, Yossef Al Buni}
+\newcommand{\group}{2}
+
+\begin{document}
+\projectinfo{Software Testing - Graph Coverage\small}{\today}{\name}{\group}
+
+
+\addtocounter{question}{2}
+%%%%%%%%%%%%%%%%
+%%% Phase 03 %%%
+%%%%%%%%%%%%%%%%
+
+\begin{question}{Graph Coverage}
+  \begin{enumerate}[topsep=0pt, leftmargin=*]
+    \item Measure the coverage of your given project test suite (which includes the existing test suite as well as the tests that you created in previous project phases) by two graph coverage criteria which you can freely choose. Describe each individual result in 2-3 sentences.
+          \begin{answer}
+
+\begin{itemize}[leftmargin=1.5em]
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  breakatwhitespace=false,
+  showstringspaces=false,
+  columns=flexible,
+  frame=single,
+}
+
+\item \textbf{Test Execution:}
+\begin{lstlisting}
+
+executed command: pytest --cov=code/original-project/streamlink/src --cov-branch --cov-report=html
+\end{lstlisting}
+
+The command above results in a coverage of approximately \textbf{59\%}.  
+I specifically target the \texttt{src} folder because it contains all the relevant source files.  
+To execute the command successfully, make sure you are in the \texttt{group-02} directory.
+
+\item \textbf{Line Coverage: we have overall 21657 statements of which 7899 were missed and 143 were excluded} 
+
+\item \textbf{Branch Coverage: we have 4928 of which 162 were patially executed} 
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{coverage report.png}
+  \caption{Coverage Report}
+  \label{fig:meinbild}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{coverage report detail.png}
+  \caption{Coverage Report in detail}
+  \label{fig:meinbild}
+\end{figure}
+
+
+
+
+\end{itemize}
+
+
+
+\end{answer}
+
+   
+
+    \item Extend the test suite with own tests, which have to fullfil \textbf{one} of the following criteria:
+          \begin{enumerate}
+            \item Increase the coverage values of all three coverage criteria that you applied in the previous subtask with at least 10 tests \textit{per group member} (compare and describe the effects on coverage for each individual test), OR
+            \item Reveal a new bug in the software project (describe the bug, its context, and a potential fix in detail)
+          \end{enumerate}
+          \begin{answer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The method \texttt{stream\_weight()} has three paths, all of which are covered in the tests below. By covering each statement, we traverse through the code and execute each line and each branch. Together, these three tests cover all conditions of the method.
+
+The method \texttt{\_write()} has four paths, all of which are covered in the tests below. These tests cover all conditions of the method.
+
+\begin{itemize}
+    \item \texttt{test\_normal\_stream\_quality()}: increases line and branch coverage
+    \item \texttt{test\_3d\_stream\_reduces\_weight()}: increases line and branch coverage
+    \item \texttt{test\_high\_frame\_rate\_increases\_weight()}: increases line and branch coverage
+    \item \texttt{test\_write\_to\_record\_only()}: increases line and branch coverage
+    \item \texttt{test\_write\_to\_namedpipe\_only()}: increases line and branch coverage
+    \item \texttt{test\_write\_to\_http\_only()}: increases line and branch coverage
+    \item \texttt{test\_write\_to\_stdin\_only()}: increases line and branch coverage
+\end{itemize}
+
+After testing, we had 3 fewer partial branches and 15 fewer missing statements [Maxim Zilke].
+
+
+
+\begin{lstlisting}[caption={Maxim Zilke: statement coverage tests }, label={}]
+
+import pytest
+from streamlink.plugins.youtube import YouTube
+def test_normal_stream_quality():
+        """Test normal stream quality like 720p, 1080p"""
+        weight, group = YouTube.stream_weight("720p")
+        assert isinstance(weight, int)
+        assert group == "pixels"  # Plugin.stream_weight returns "pixels" for quality formats
+        
+def test_3d_stream_reduces_weight():
+         """Test that 3D streams get reduced weight and special group"""
+         weight_normal, group_normal = YouTube.stream_weight("720p")
+         weight_3d, group_3d = YouTube.stream_weight("720p_3d")
+        
+         assert weight_3d == weight_normal - 1
+         assert group_3d == "youtube_3d"
+ 
+def test_high_frame_rate_increases_weight():
+         """Test that HFR streams get increased weight and special group"""
+         weight_normal, group_normal = YouTube.stream_weight("720p")
+         weight_hfr, group_hfr = YouTube.stream_weight("720p60")
+          
+         assert weight_hfr == weight_normal + 1
+         assert group_hfr == "high_frame_rate"
+      \end{lstlisting}  
+    
+    \begin{lstlisting}[caption={Maxim Zilke: branch coverage tests}, label={}]
+import pytest
+from types import SimpleNamespace
+from streamlink_cli.output.player import PlayerOutput
+
+class DummyWriter:
+    def __init__(self):
+        self.written = []
+
+    def write(self, data):
+        self.written.append(data)
+
+def make_output(record=None, namedpipe=None, http=None):
+    out = object.__new__(PlayerOutput)
+    out.record = record
+    out.namedpipe = namedpipe
+    out.http = http
+    out.player = SimpleNamespace(stdin=DummyWriter())
+    return out
+
+def test_write_to_record_only():
+    test = DummyWriter()
+    output = make_output(record=test)
+    output._write("test-data")
+    assert test.written == ["test-data"]
+
+def test_write_to_namedpipe_only():
+    test = DummyWriter()
+    output = make_output(namedpipe=test)
+    output._write("Maxim")
+    assert test.written == ["Maxim"]
+
+def test_write_to_http_only():
+    test = DummyWriter()
+    output = make_output(http=test)
+    output._write("Zilke")
+    assert test.written == ["Zilke"]
+
+def test_write_to_stdin_only():
+    output = make_output()
+    output._write("final")
+    assert output.player.stdin.written == ["final"]
+
+             \end{lstlisting}
+            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+            [Yossef Al Buni]
+
+             \begin{lstlisting}[style=pythongrey]
+             ### - test open_subprocess() - ###
+import pytest
+from unittest.mock import patch, MagicMock, PropertyMock
+from pathlib import Path
+from streamlink_cli.output.player import PlayerOutput, PlayerArgsVLC
+
+@patch("streamlink_cli.output.player.subprocess.Popen")
+def test_open_subprocess_exits_early(mock_popen):
+    mock_proc = MagicMock()
+    mock_popen.return_value = mock_proc
+    po = PlayerOutput(Path("echo"))
+    type(po).running = PropertyMock(return_value=False)  # ← Prozess nicht laufend
+    with pytest.raises(OSError, match="Process exited prematurely"):
+        po._open_subprocess(["echo", "test"])
+@patch("streamlink_cli.output.player.subprocess.Popen")
+def test_open_subprocess_namedpipe(mock_popen):
+    mock_proc = MagicMock()
+    mock_popen.return_value = mock_proc
+    pipe = MagicMock()
+    po = PlayerOutput(Path("echo"))
+    type(po).running = PropertyMock(return_value=True)
+    po.namedpipe = pipe
+    po._open_subprocess(["echo", "test"])
+    pipe.open.assert_called_once()
+@patch("streamlink_cli.output.player.subprocess.Popen")
+def test_open_subprocess_http(mock_popen):
+    mock_proc = MagicMock()
+    mock_popen.return_value = mock_proc
+    http = MagicMock()
+    po = PlayerOutput(Path("echo"))
+    type(po).running = PropertyMock(return_value=True)
+    po.http = http
+    po.namedpipe = None
+    po._open_subprocess(["echo", "test"])
+    http.accept_connection.assert_called_once()
+    http.open.assert_called_once()
+    
+### - test close() - ###
+p = PlayerOutput(Path("dummy/path"))
+@pytest.fixture
+def dummy_player():
+    return Mock(
+        stdin=Mock(),
+        terminate=Mock(),
+        wait=Mock(),
+        poll=Mock(return_value=None),
+        returncode=None,
+        kill=Mock()
+    )
+def test_close_namedpipe_only(dummy_player):
+    p = PlayerOutput(Path("dummy/path"))
+    p.namedpipe = Mock()
+    p.http = None
+    p.filename = True
+    p.record = None
+    p.kill = False
+    p.player = dummy_player
+    p._close()
+    p.namedpipe.close.assert_called_once()
+def test_close_http_only(dummy_player):
+    p = PlayerOutput(Path("dummy/path"))
+    p.namedpipe = None
+    p.http = Mock()
+    p.filename = True
+    p.record = None
+    p.kill = False
+    p.player = dummy_player
+    p._close()
+    p.http.shutdown.assert_called_once()
+def test_close_no_filename(dummy_player):
+    p = PlayerOutput(Path("dummy/path"))
+    p.namedpipe = None
+    p.http = None
+    p.filename = False
+    p.record = None
+    p.kill = False
+    p.player = dummy_player
+    p._close()
+    p.player.stdin.close.assert_called_once()
+def test_close_with_record(dummy_player):
+    p = PlayerOutput(Path("dummy/path"))
+    p.namedpipe = None
+    p.http = None
+    p.filename = True
+    p.record = Mock()
+    p.kill = False
+    p.player = dummy_player
+    p._close()
+    p.record.close.assert_called_once()
+@patch("streamlink_cli.output.player.is_win32", False)
+@patch("streamlink_cli.output.player.sleep", lambda x: None)
+def test_close_with_kill(dummy_player):
+    dummy_player.poll.side_effect = [None, None, 0]
+    dummy_player.returncode = None
+    p = PlayerOutput(Path("dummy/path"))
+    p.namedpipe = None
+    p.http = None
+    p.filename = True
+    p.record = None
+    p.kill = True
+    p.player = dummy_player
+    p._close()
+    dummy_player.terminate.assert_called_once()
+    dummy_player.kill.assert_called_once()
+    dummy_player.wait.assert_called_once()
+@patch("streamlink_cli.output.player.is_win32", False)
+@patch("streamlink_cli.output.player.sleep", lambda x: None)
+def test_close_kill_branch_returncode_none():
+    from types import SimpleNamespace
+    dummy_player = Mock()
+    dummy_player.stdin = Mock()
+    dummy_player.terminate = Mock()
+    dummy_player.wait = Mock()
+    dummy_player.kill = Mock()
+    # poll() gibt immer None zurück → Schleife läuft bis Timeout
+    dummy_player.poll.side_effect = lambda: None
+    # returncode wird wie echtes Attribut behandelt
+    dummy_player._returncode = None
+    type(dummy_player).returncode = property(lambda self: self._returncode)
+    p = PlayerOutput(Path("dummy/path"))
+    p.namedpipe = None
+    p.http = None
+    p.filename = True
+    p.record = None
+    p.kill = True
+    p.player = dummy_player
+    p.PLAYER_TERMINATE_TIMEOUT = 0.5  # klein halten für Test
+    p._close()
+    dummy_player.terminate.assert_called_once()
+    dummy_player.kill.assert_called_once()
+    dummy_player.wait.assert_called_once()
+
+### - test get_namedpipe() - ###
+@pytest.fixture
+def namedpipe_mock():
+    mock = Mock()
+    mock.path = "testpipe"
+    return mock
+@patch("streamlink_cli.output.player.is_win32", True)
+def test_get_namedpipe_windows(namedpipe_mock):
+    player = PlayerArgsVLC(Path("dummy/path"))
+    result = player.get_namedpipe(namedpipe_mock)
+    assert result == "stream://\\testpipe"
+@patch("streamlink_cli.output.player.is_win32", False)
+def test_get_namedpipe_non_windows(namedpipe_mock):
+    player = PlayerArgsVLC(Path("dummy/path"))
+    with patch.object(
+        PlayerArgsVLC.__bases__[0],  # PlayerArgs
+        "get_namedpipe",
+        return_value="super_called"
+    ) as super_method:
+        result = player.get_namedpipe(namedpipe_mock)
+        super_method.assert_called_once_with(namedpipe_mock)
+        assert result == "super_called"
+             \end{lstlisting}
+
+[Yossef Al Buni] - Criteria 1 \\
+\section*{Coverage Impact of Individual Tests}
+
+Each test was carefully designed to cover a specific code path or condition, contributing to overall line and branch coverage. The following comparison outlines the unique coverage contribution of each test case.
+
+\subsubsection*{1. Tests for \texttt{open\_subprocess} (4 tests)}
+
+\begin{itemize}
+    \item \textbf{Base test}: Covers the primary control flow when \texttt{self.running = True}, \texttt{self.namedpipe = None}, and \texttt{self.http = None}. It ensures line coverage for the successful subprocess creation and skips all optional branches.
+    
+    \item \textbf{test\_open\_subprocess\_exits\_early}: Triggers the branch where \texttt{self.running = False}, causing an \texttt{OSError} to be raised. This test adds branch coverage by validating the exception-handling logic and early termination path.
+
+    \item \textbf{test\_open\_subprocess\_namedpipe}: Forces the conditional branch where \texttt{self.namedpipe} is set, confirming the invocation of \texttt{namedpipe.open()}. This covers a branch that is not executed in the base test.
+
+    \item \textbf{test\_open\_subprocess\_http\_test}: Ensures the alternate branch is exercised when \texttt{self.namedpipe = None} and \texttt{self.http} is set. It validates that both \texttt{http.accept\_connection()} and \texttt{http.open()} are invoked.
+\end{itemize}
+
+\subsubsection*{2. Tests for \texttt{close()} (7 tests)}
+
+\begin{itemize}
+    \item \textbf{test\_close\_namedpipe\_only}: Covers the first conditional branch in the \texttt{close()} method by setting only \texttt{self.namedpipe}. Ensures execution of \texttt{self.namedpipe.close()} and skips subsequent branches.
+
+    \item \textbf{test\_close\_http\_only}: Covers the second conditional branch by mocking an HTTP output stream. Verifies that \texttt{self.http.shutdown()} is executed.
+
+    \item \textbf{test\_close\_no\_filename}: Tests the branch where neither \texttt{self.namedpipe} nor \texttt{self.http} is used, and \texttt{self.filename = False}. It ensures the path that calls \texttt{self.player.stdin.close()} is covered.
+
+    \item \textbf{test\_close\_with\_record}: Activates the condition where \texttt{self.record} is set, confirming the call to \texttt{self.record.close()}. Adds independent branch coverage.
+
+    \item \textbf{test\_close\_with\_kill}: Covers the condition \texttt{self.kill = True} and tests the player termination logic. It ensures that \texttt{self.player.terminate()} is called and potentially enters platform-specific logic (e.g., \texttt{if not is\_win32}).
+
+    \item \textbf{test\_close\_kill\_branch\_returncode\_none}: Specifically targets a previously uncovered inner condition where \texttt{self.player.returncode = None}. This test ensures the fallback path using \texttt{self.player.kill()} is exercised.
+\end{itemize}
+
+\subsubsection*{3. Tests for \texttt{get\_namedpipe()} (2 tests)}
+
+\begin{itemize}
+    \item \textbf{test\_get\_namedpipe\_windows}: Simulates a Windows environment by patching \texttt{is\_win32 = True}. Ensures the execution of the Windows-specific string formatting logic.
+
+    \item \textbf{test\_get\_namedpipe\_non\_windows}: Simulates a non-Windows platform by setting \texttt{is\_win32 = False}. Verifies that the method delegates correctly to the superclass implementation.
+\end{itemize}
+
+\textbf{Conclusion:} Each individual test contributes uniquely to the total branch and line coverage. Their combined execution ensures that all relevant decision points and execution paths in the tested methods are fully covered.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% other members
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+          \end{answer}
+  \end{enumerate}
+\end{question}
+
+\begin{aiTask}
+  Manually conduct \textit{SymPrompt} to let your LLM construct test cases. List the coverage results for the individual test cases. Add any code relevant for your analysis to the answer:
+  \begin{answer}
+    [Group: Your LLM]
+
+    [Group: Your Steps]
+
+    [Group: Your Results]
+
+    \dots
+    % \begin{lstlisting}[style=pythongrey]
+    % [LLM tests]
+    % \end{lstlisting}
+    % or: \lstinputlisting[style=pythongrey]{file_name.py}
+  \end{answer}
+\end{aiTask}
+
+\end{document}

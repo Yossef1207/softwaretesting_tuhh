@@ -1,0 +1,9 @@
+{
+    "exit_code_by_key": {
+        "streamlink.plugins.pluto.x\u01c1PlutoHLSStreamWriter\u01c1should_filter_segment__mutmut_1": null,
+        "streamlink.plugins.pluto.x\u01c1PlutoHLSStreamWriter\u01c1should_filter_segment__mutmut_2": null,
+        "streamlink.plugins.pluto.x\u01c1PlutoHLSStreamWriter\u01c1should_filter_segment__mutmut_3": null,
+        "streamlink.plugins.pluto.x\u01c1PlutoHLSStreamWriter\u01c1should_filter_segment__mutmut_4": null
+    },
+    "hash_by_function_name": {}
+}

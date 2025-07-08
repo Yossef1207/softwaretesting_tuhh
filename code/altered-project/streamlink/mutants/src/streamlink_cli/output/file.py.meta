@@ -1,0 +1,26 @@
+{
+    "exit_code_by_key": {
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1__init____mutmut_1": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1__init____mutmut_2": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1__init____mutmut_3": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_1": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_2": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_3": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_4": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_5": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_6": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_7": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_8": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_9": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_10": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_11": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_12": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_13": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_14": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_open__mutmut_15": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_close__mutmut_1": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_write__mutmut_1": null,
+        "streamlink_cli.output.file.x\u01c1FileOutput\u01c1_write__mutmut_2": null
+    },
+    "hash_by_function_name": {}
+}

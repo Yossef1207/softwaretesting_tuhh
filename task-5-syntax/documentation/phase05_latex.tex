@@ -1,0 +1,309 @@
+\documentclass[a4paper]{scrreprt}
+\usepackage[left=4cm,bottom=3cm,top=3cm,right=4cm,nohead,nofoot]{geometry}
+\usepackage{import,graphicx,tabularx,listings,enumitem,subcaption}
+\usepackage{xparse,multirow}
+\usepackage{xcolor}
+
+\setlength{\textfloatsep}{16pt}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand{\labelenumii}{\arabic{enumii}) }
+
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{orange},
+    commentstyle=\color{gray},
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    tabsize=4,
+    captionpos=b
+}
+
+
+
+% Base info for header
+\newcommand{\baseinfo}[5]{
+  \begin{center}
+    \begin{tabular}{p{15cm}r}
+      \vspace{-4.5pt}{ \Large \bfseries #1} & \multirow{2}{*}{} \\[0.4cm]
+      #2 & \\[0.5cm]
+    \end{tabular}
+  \end{center}
+  \vspace{-18pt}\hrule\vspace{6pt}
+  \begin{tabular}{ll}
+    \textbf{Names:} & #4\\
+    \textbf{Group:} & #5\\
+  \end{tabular}
+  \vspace{4pt}\hrule\vspace{2pt}
+  \footnotesize \textbf{Software Testing} \hfil - \hfil Summer 2024 \hfil - \hfil #3 \hfil - \hfil Sibylle Schupp / Daniel Rashedi \hfil \\
+}
+
+\lstdefinestyle{pythongrey}{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{green!50!black},
+    backgroundcolor=\color{gray!10},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    framesep=3pt,
+    tabsize=4,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    captionpos=b
+}
+
+% Question and answer environments
+\newcounter{question}
+\NewDocumentEnvironment{question}{m o}{%
+  \addtocounter{question}{1}%
+  \paragraph{\textcolor{red}{Task~\arabic{question}} - #1\hfill\IfNoValueTF{#2}{}{[#2]}}
+  \leavevmode\\%
+}{%
+  \vskip 1em%
+}
+
+\NewDocumentEnvironment{aiTask}{}{
+  \paragraph{\textcolor{red}{AI Review Task}}
+  \leavevmode\\
+}{
+  \vskip 1em
+}
+
+\NewDocumentEnvironment{answer}{}{%
+  \vspace{6pt}
+  \leavevmode\\
+  \textit{Answer:}\\[-0.25cm]
+  {\color{red}\rule{\textwidth}{0.4mm}}
+}{%
+  \leavevmode\\
+  {\color{red}\rule{\textwidth}{0.4mm}}
+}
+
+% ======= STUDENTS: START EDITING BELOW THIS LINE =======
+\newcommand{\projectinfo}[4]{\baseinfo{Project Task 05 - Submission Sheet}{#1}{#2}{#3}{#4}}
+\newcommand{\name}{Maxim Zilke, Yossef Al Buni}
+\newcommand{\group}{Group 2}
+
+\begin{document}
+\projectinfo{Software Testing - Syntax Coverage\small}{\today}{\name}{\group}
+
+\addtocounter{question}{4}
+
+%%%%%%%%%%%%%%%%
+%%% Phase 05 %%%
+%%%%%%%%%%%%%%%%
+
+\begin{question}{Syntax Coverage}
+  \begin{enumerate}[topsep=0pt, leftmargin=*]
+
+    \item As a group, pick one mutation tool for Python code.
+          \begin{answer}
+            We picked the mutation tool mutmut 
+          \end{answer}
+
+    \item Depending on the capabilities of the selected mutation testing tool, determine the amount of \textit{killed mutants} for at least \textbf{3 different mutation operators}.
+          \begin{answer}
+            
+          \end{answer}
+
+    \item For each of the applied mutation operators, pick a distinct method of your project that was affected by that operator, and highlight / describe the instructions that are changed. Explain how the test suite does or does not satisfy the criteria of \textit{Reachability}, \textit{Infection}, and \textit{Propagation} for that part.
+          \begin{answer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{lstlisting}[language=Python, caption={mutated tests for \texttt{\_HoursMinutesSeconds\_\_call\_\_} by Maxim Zilke}, label={lst:hoursminutes-call}]
+def x_HoursMinutesSeconds__call____mutmut_orig(self, value: str) -> _THMS:
+    if self._re_float.match(value):
+        return self._return_type(float(value))
+
+    match = self._re_s.match(value) or self._re_ms.match(value) or self._re_hms.match(value)
+    if not match:
+        raise ValueError
+
+    data = match.groupdict()
+
+    seconds = 0.0
+    seconds += float(data.get("hours") or 0.0) * 3600.0
+    seconds += float(data.get("minutes") or 0.0) * 60.0
+    seconds += float(data.get("seconds") or 0.0)
+
+    res = -seconds if value[0] == "-" else seconds
+
+    return self._return_type(res)
+
+
+def x_HoursMinutesSeconds__call____mutmut_23(self, value: str) -> _THMS:
+    if self._re_float.match(value):
+        return self._return_type(float(value))
+
+    match = self._re_s.match(value) or self._re_ms.match(value) or self._re_hms.match(value)
+    if not match:
+        raise ValueError
+
+    data = match.groupdict()
+
+    seconds = 0.0
+    seconds += float(data.get("hours") or 0.0) / 3600.0
+    seconds += float(data.get("minutes") or 0.0) * 60.0
+    seconds += float(data.get("seconds") or 0.0)
+
+    res = -seconds if value[0] == "-" else seconds
+
+    return self._return_type(res)
+\end{lstlisting}
+
+
+
+\section*{Analysis of Reachability, Infection, and Propagation}
+
+Applied Mutation Operator: AOR (Arithmetic Operator Replacement)
+Changed Instruction:
+
+\begin{lstlisting}[language=Python, caption={original and mutated code}]
+Original: seconds += float(data.get("hours") or 0.0) * 3600.0
+Mutated: seconds += float(data.get("hours") or 0.0) / 3600.0
+\end{lstlisting}
+
+
+\subsection*{Reachability}
+
+The mutated line is reached by the test suite. The givem test inputs ensure execution of the mutated line, bacause it involved hour-based calculations affected by the replaced arithmetic operator:
+
+\begin{lstlisting}[language=python]
+pytest.param("1h", True, 3600.0, id="Xh"),
+pytest.param("12h", True, 43200.0, id="XXh"),
+pytest.param("123h", True, 442800.0, id="XXXh"),
+\end{lstlisting}
+
+
+
+\subsection*{Infection}
+
+The mutation changes the program’s internal state. The original line multiplies the hour value by 3600 to convert hours to seconds:
+
+\begin{center}
+\texttt{1h $\rightarrow$ 3600 seconds}
+\end{center}
+
+The mutated line divides by 3600 instead:
+
+\begin{center}
+\texttt{1h $\rightarrow$ 0.000278 seconds}
+\end{center}
+
+This leads to a different internal result, which successfully infects the output.
+
+\subsection*{Propagation}
+
+The infected output is detected by the test assertions. Consider the test function:
+
+\begin{lstlisting}[language=python]
+def test_hours_minutes_seconds(self, timestamp: str, as_float: bool, sign: str, factor: int, expected: float):
+    method = hours_minutes_seconds_float if as_float else hours_minutes_seconds
+    res = method(f"{sign}{timestamp}")
+    assert type(res) is type(expected)
+    assert res == factor * expected
+\end{lstlisting}
+
+Given the incorrect mutated result (e.g. 0.000278 instead of 3600), the final assertion
+
+\begin{center}
+\texttt{assert res == factor * expected}
+\end{center}
+
+will fail, thus the mutation is propagated and detected by the test suite. Written by Maxim Zilke 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Mutation Operator Analysis: ASR (Assignment Operator Replacement) by \textbf{[Yossef Al Buni]}}
+
+\begin{lstlisting}[language=Python, caption={Hypothesis-Test für \texttt{HoursMinutesSeconds\textbackslash call\_}}, label={lst:hoursminutes-call}]
+
+def xNamedThread_init_mutmut_orig(self, *args, name: str | None = None, **kwargs):
+        with _threadname_lock:
+            newname = self._class.name_
+            if name:
+                newname += f"-{name}"
+
+            # noinspection PyUnresolvedReferences
+            kwargs["name"] = f"{newname}-{next(_threadname_counters[newname])}"
+
+def xNamedThread_init_mutmut_3(self, *args, name: str | None = None, **kwargs):
+        with _threadname_lock:
+            newname = self._class.name_
+            if name:
+                newname -= f"-{name}"
+
+            # noinspection PyUnresolvedReferences
+            kwargs["name"] = f"{newname}-{next(_threadname_counters[newname])}"
+
+\end{lstlisting}
+
+In this analysis, we examine the impact of the ASR (Assignment Operator Replacement) mutation operator applied to a method in the project. Specifically, the mutation modifies the original assignment statement \texttt{newname += f"-\{name\}"} by replacing the operator \texttt{+=} with \texttt{-=}, resulting in the mutated instruction \texttt{newname -= f"-\{name\}"}. Since Python strings do not support the \texttt{-=} operator, executing the mutated line leads to a \texttt{TypeError}, causing the program to crash at runtime.
+
+To assess this mutation, we analyze it using the three fundamental mutation testing criteria: reachability, infection, and propagation.
+
+\textbf{Reachability} is satisfied if the mutated line is executed during testing. In this case, the mutation occurs inside a conditional block \texttt{if name:}, which is only entered if a non-\texttt{None} value is passed to the \texttt{name} parameter. Therefore, as long as the test provides a valid \texttt{name} argument, the mutated line will be reached.
+
+\textbf{Infection} occurs when the program state is changed due to the mutation. In this case, instead of performing string concatenation, the mutated line triggers a runtime exception, clearly indicating that the internal behavior of the program has diverged from the original.
+
+\textbf{Propagation} requires that the infection is observable in the program output or test results. If the test passes a non-\texttt{None} name and the mutated code is executed, the exception will cause the test to fail, and thus the mutation will be detected (the mutant is ``killed''). However, if the test never supplies a non-\texttt{None} name, the mutated line is never executed, and the mutant may survive.
+
+To ensure the mutant is killed, a test case should invoke the affected method with a non-\texttt{None} name argument. For example:
+
+\begin{verbatim}
+def test_named_thread_with_name():
+    thread = NamedThread(name="worker")
+    assert "worker" in thread.name
+\end{verbatim}
+
+This guarantees that the mutated code is reached, the infection occurs via a runtime error, and the test fails—thereby satisfying all three mutation testing criteria.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%other members
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+          \end{answer}
+
+    \item Pick one suitable method (restricted to int values) or class from your project, and derive an automaton expressing its behaviour. For the creation of your automaton, use the \textit{Uppaal} model checker environment.
+          \begin{answer}
+            [Group: Your answer]
+            % Include your screenshot of Hypothesis test outcomes below
+            % \begin{figure}[h]
+            %   \centering
+            %   \includegraphics[width=0.8\textwidth]{your_screenshot_filename.jpg}
+            %   \caption{Screenshot of Uppaal Model}
+            %   \label{fig:uppaal-model}
+            % \end{figure}
+          \end{answer}
+
+    \item Formulate at least 2 formal requirements that your model / method needs to satisfy, create corresponding \textit{queries} in Uppaal, and execute them to assure that your base model satisfies them. Enable \texttt{Options $\rightarrow$ Diagnostic Trace $\rightarrow$ Some} to get a counterexample trace in case that a queried formula is not satisfied. This trace can be inspected in the \texttt{Simulator} tab.
+          \begin{answer}
+            [Group: Your answer]
+          \end{answer}
+
+    \item Apply \textit{one} mutation operator from the provided table to \textit{one} single expression in your model, and re-evaluate your queries. Explain why the verification results of the model changed or remained the same. If a counterexample is created, note the test vector that kills the mutant.
+          \begin{answer}
+            [Group: Your answer]
+          \end{answer}
+
+    \item Reroute one transition in your model (i.e., connect the edge to a different destination node), and re-evaluate your queries. Explain why the verification results of the model changed or remained the same. If a counterexample is created, note the test vector that kills the mutant.
+          \begin{answer}
+            [Group: Your answer]
+          \end{answer}
+
+  \end{enumerate}
+\end{question}
+
+\end{document}
